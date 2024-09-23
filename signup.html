@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RunVenture </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+    <header class="bg-gray-900 text-white py-6">
+        <h1 class="text-center text-3xl font-bold">Sign Up</h1>
+        <nav class="flex justify-center mt-4 space-x-6">
+            <a href="index.html" class="hover:text-yellow-400">Home</a>
+            <a href="about.html" class="hover:text-yellow-400">About</a>
+            <a href="blog.html" class="hover:text-yellow-400">Blog</a>
+            <a href="signup.html" class="hover:text-yellow-400">Sign Up</a>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6">
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Sign Up for the Race</h2>
+            <form action="submit-form.html" class="space-y-4">
+
+                <!-- Race Type Dropdown -->
+                <div>
+                    <label for="race-type" class="block text-lg font-semibold mb-1">Select Your Race Type:</label>
+                    <select id="race-type" name="race-type" class="w-full p-3 border rounded-lg" required>
+                        <option value="" disabled selected>Select your race type</option>
+                        <option value="pr-race">Racing for a PR</option>
+                        <option value="fun-race">Running for Fun</option>
+                    </select>
+                </div>
+
+                <!-- Race Location Dropdown -->
+                <div>
+                    <label for="race-location" class="block text-lg font-semibold mb-1">Select Your Race Location:</label>
+                    <select id="race-location" name="race-location" class="w-full p-3 border rounded-lg" required>
+                        <option value="" disabled selected>Select your race location</option>
+                        <option value="paris">Paris, March 9th, 2025</option>
+                        <option value="prague">Prague, April 4th, 2025</option>
+                        <option value="barcelona">Barcelona, February 16th, 2025</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="name" class="block text-lg font-semibold mb-1">Full Name:</label>
+                    <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg" required>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-lg font-semibold mb-1">Email:</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border rounded-lg" required>
+                </div>
+
+                <input type="submit" value="Sign Up" class="w-full bg-yellow-500 text-white font-semibold py-3 rounded-lg hover:bg-gray-900 transition">
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white text-center py-8">
+        <p>&copy; 2024 International Half Marathon Adventure</p>
+    </footer>
+</body>
+</html>
