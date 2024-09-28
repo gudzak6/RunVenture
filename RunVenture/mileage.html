@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Run Mileage</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Center the bar chart and control its size */
+        canvas {
+            max-width: 300px; /* Make the chart a bit smaller */
+            max-height: 200px;
+            display: block;
+            margin: 0 auto; /* Center the chart horizontally */
+            margin-bottom: 20px;
+        }
+
+        /* Style the workout table */
+        .workout-table {
+            display: none;
+            margin-top: 20px;
+            width: 80%; /* Make the table a bit smaller */
+            margin: 0 auto; /* Center the table */
+        }
+
+        .workout-table.active {
+            display: block;
+        }
+
+        /* Style the table with smaller dimensions */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            font-size: 1.1em; /* Slightly smaller font size */
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Weekly Run Mileage</h1>
+    
+    <!-- Centered and smaller bar chart -->
+    <canvas id="mileageChart"></canvas>
+
+    <!-- Slightly smaller and centered workout table -->
+    <div id="workoutDetails" class="workout-table">
+        <h2 style="text-align: center;">Workout Details</h2>
+        <table id="workoutTable" border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Workout Type</th>
+                    <th>Miles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sample weekly mileage data
+        const weeklyMileage = [30, 35, 28, 40, 38];
+        const weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'];
+
+        // Sample detailed workout data per week
+        const workoutData = {
+            0: [
+                { date: '2024-09-01', type: 'Long Run', miles: 10 },
+                { date: '2024-09-02', type: 'Tempo Run', miles: 5 },
+                { date: '2024-09-03', type: 'Recovery Run', miles: 3 },
+                { date: '2024-09-05', type: 'Interval Training', miles: 5 },
+                { date: '2024-09-06', type: 'Easy Run', miles: 7 }
+            ],
+            1: [
+                { date: '2024-09-08', type: 'Long Run', miles: 12 },
+                { date: '2024-09-09', type: 'Tempo Run', miles: 6 },
+                { date: '2024-09-10', type: 'Recovery Run', miles: 4 },
+                { date: '2024-09-12', type: 'Interval Training', miles: 6 },
+                { date: '2024-09-13', type: 'Easy Run', miles: 7 }
+            ],
+            // More data for other weeks...
+        };
+
+        // Function to create the bar chart
+        function createMileageChart() {
+            const ctx = document.getElementById('mileageChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: weeks,
+                    datasets: [{
+                        label: 'Total Miles Run',
+                        data: weeklyMileage,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    onClick: function(event, elements) {
+                        if (elements.length > 0) {
+                            const clickedElementIndex = elements[0].index;
+                            showWorkoutDetails(clickedElementIndex);
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to display workout details for a selected week
+        function showWorkoutDetails(weekIndex) {
+            const tableBody = document.querySelector('#workoutTable tbody');
+            tableBody.innerHTML = ''; // Clear the previous data
+
+            const workouts = workoutData[weekIndex];
+            workouts.forEach(workout => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${workout.date}</td><td>${workout.type}</td><td>${workout.miles}</td>`;
+                tableBody.appendChild(row);
+            });
+
+            document.getElementById('workoutDetails').classList.add('active');
+        }
+
+        // Initialize the chart on page load
+        window.onload = createMileageChart;
+    </script>
+</body>
+</html>

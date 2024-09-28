@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RunVenture </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+    <header class="bg-gray-900 text-white py-6">
+        <nav class="flex justify-center mt-4 space-x-6">
+            <a href="index.html" class="hover:text-yellow-400">Home</a>
+            <a href="about.html" class="hover:text-yellow-400">About</a>
+            <a href="blog.html" class="hover:text-yellow-400">Blog</a>
+            <a href="signup.html" class="hover:text-yellow-400">Sign Up</a>
+            <a href="mileage.html" class="hover:text-yellow-400">Weekly Plan</a>
+
+        </nav>
+    </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half Marathon Race Program</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Hide itinerary details initially */
+    .itinerary-details {
+      display: none;
+    }
+
+    /* Small and circular buttons for itinerary */
+    .day-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-100">
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-72" style="background-image: url('hero-image.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+      <h1 class="text-3xl font-bold">Join Our Half Marathon Race Program</h1>
+      <p class="mt-4 text-lg">Train, travel, and race with like-minded runners internationally.</p>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section class="py-8 bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-white mb-6">Race Details</h2>
+      <ul class="space-y-4 text-white">
+        <li><strong>Date:</strong> April 14, 2024</li>
+        <li><strong>Location:</strong> London, UK</li>
+        <li><strong>Included:</strong> Race entry, hotel accommodation, group training sessions, and lifelong friends.</li>
+      </ul>
+    </div>
+  </section>
+
+ <!-- Itinerary Section -->
+<section class="py-8 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-2">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6">Itinerary</h2>
+      <p class="text-gray-700 mb-8">If you choose the flight or hotel package options, you will fly over with the group and spend 5 days total with each other.</p>
+  
+      <!-- Horizontal layout for the buttons -->
+      <div class="flex justify-between items-center mb-4">
+        <!-- Day 1 -->
+        <button class="day-button bg-gray-900 text-white hover:bg-gray-700" onclick="showDay('day1')"> Day 01</button>
+  
+        <!-- Day 2 -->
+        <button class="day-button bg-gray-900 text-white hover:bg-gray-700" onclick="showDay('day2')"> Day 02</button>
+  
+        <!-- Day 3 -->
+        <button class="day-button bg-gray-900 text-white hover:bg-gray-700" onclick="showDay('day3')"> Day 03</button>
+  
+        <!-- Day 4 -->
+        <button class="day-button bg-gray-900 text-white hover:bg-gray-700" onclick="showDay('day4')"> Day 04</button>
+  
+        <!-- Day 5 -->
+        <button class="day-button bg-gray-900 text-white hover:bg-gray-700" onclick="showDay('day5')"> Day 05</button>
+      </div>
+  
+      <!-- Itinerary Details for Each Day -->
+      <div id="day1" class="itinerary-details bg-white p-4 rounded-lg shadow-md mb-4">
+        <p>Spend the day arriving and getting settled at the hotel.</p>
+      </div>
+  
+      <div id="day2" class="itinerary-details bg-white p-4 rounded-lg shadow-md mb-4">
+        <p>Go to the expo, get a light jog in. Sightsee some of Prague's sites, bakeries, and other exciting adventures!</p>
+      </div>
+  
+      <div id="day3" class="itinerary-details bg-white p-4 rounded-lg shadow-md mb-4">
+        <p>Go to the expo if you haven't. More sightseeing planned.</p>
+      </div>
+  
+      <div id="day4" class="itinerary-details bg-white p-4 rounded-lg shadow-md mb-4">
+        <p>Race day and celebrations!</p>
+      </div>
+  
+      <div id="day5" class="itinerary-details bg-white p-4 rounded-lg shadow-md mb-4">
+        <p>Departure Day :(</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign-Up Form Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6">Interest Form</h2>
+      <form action="mailto:gudzak6@yahoo.com" method="POST" class="bg-white p-8 shadow-lg rounded-lg" enctype="text/plain">
+        <div class="mb-6">
+          <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+          <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div class="mb-6">
+          <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+        </div>
+
+        <!-- Descriptions above the selection dropdown -->
+        <div class="mb-6">
+            <label for="package" class="block text-gray-700 font-medium mb-2">Select Your Package</label>
+          <p class="text-gray-700 mb-2"><strong>Race bib only:</strong> Choose this if you want to fly and stay over by yourself. This selection will just purchase your race bib.</p>
+          <p class="text-gray-700 mb-2"><strong>Race bib and flight:</strong> Choose this if you want to fly over with others.</p>
+          <p class="text-gray-700 mb-2"><strong>Race bib, hotel, and flight:</strong> Choose this if you want to fly over with others and stay with some from the group.</p>
+          <p class="text-gray-700 mb-2"><strong>Race bib, hotel, flight, and coached program:</strong> Choose this if you want the full package of flying/staying with others and a customized training program for the race.</p>
+        </div>
+
+        <div class="mb-6">
+          <select id="package" name="package" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+            <option value="basic">Race bib only</option>
+            <option value="flight">Race bib and flight</option>
+            <option value="hotel-flight">Race bib, hotel, and flight</option>
+            <option value="full-package">Race bib, hotel, flight, and coached program</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-700">Complete</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p>&copy; 2024 Half Marathon Race Program. All rights reserved.</p>
+      <ul class="flex justify-center space-x-4 mt-4">
+        <li><a href="#" class="hover:text-gray-300">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-gray-300">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+ 
+  <!-- JavaScript for showing only the selected day -->
+<script>
+  function showDay(dayId) {
+    // Hide all day details
+    const days = document.querySelectorAll('.itinerary-details');
+    days.forEach(day => day.style.display = 'none');
+
+    // Show the selected day
+    const selectedDay = document.getElementById(dayId);
+    selectedDay.style.display = 'block';
+  }
+
+  // Optional: You can choose to display the first day by default when the page loads.
+  document.addEventListener("DOMContentLoaded", function() {
+    showDay('day1'); // Show Day 1 by default
+  });
+</script>
+
+</body>
+</html>
